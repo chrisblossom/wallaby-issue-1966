@@ -30,12 +30,12 @@ const wallaby = (wallabyInitial) => {
             { pattern: '**/__sandbox__/**/*', instrument: false },
             { pattern: '**/__sandbox__/**/.*', instrument: false },
             '**/*.+(js|jsx|ts|tsx)',
-            '!**/*.test.+(js|ts)',
+            '!**/!(__sandbox__)/*.test.+(js|ts)',
             { pattern: '**/.*', instrument: false },
             { pattern: '**/*', instrument: false },
         ],
 
-        tests: [...ignore, '!**/__sandbox__/**', '**/*.test.+(js|ts)'],
+        tests: [...ignore, '**/!(__sandbox__)/*.test.+(js|ts)'],
 
         compilers: {
             'src/**/*.+(js|jsx)': wallabyInitial.compilers.babel(),
